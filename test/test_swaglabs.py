@@ -16,8 +16,11 @@ def close_session():
     driver.quit()
 
 def test_click(close_session):
-    search = driver.find_element(By.CSS_SELECTOR, "")
-    search.click()
-
-    search_button = driver.find_element(By.CSS_SELECTOR, "")
+    search_button = driver.find_element(By.XPATH, '//*[@id="menu-1-c2a71a6"]/li[2]/a')
     search_button.click()
+
+    element = driver.find_element(By.XPATH, '//div[@class="elementor-button-wrapper"]')
+    driver.execute_script("window.scrollBy(0, 900)")
+    element.click()
+    element.send_keys("Get In Touch")
+    driver.get_screenshot_as_file("screenshot_About_us.png")
