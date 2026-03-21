@@ -19,8 +19,17 @@ def test_click(close_session):
     search_button = driver.find_element(By.XPATH, '//*[@id="menu-1-c2a71a6"]/li[2]/a')
     search_button.click()
 
-    element = driver.find_element(By.XPATH, '//div[@class="elementor-button-wrapper"]')
-    driver.execute_script("window.scrollBy(0, 900)")
-    element.click()
-    element.send_keys("Get In Touch")
-    driver.get_screenshot_as_file("screenshot_About_us.png")
+def scroll_to_element(self, locator, attempts=5):
+    self.global_timeout = 2
+    element = None
+    counter = 0
+    while counter < attempts:
+        self.driver.execute_script("window.scrollBy(0, 900);")
+        sleep(1)
+        try:
+            element = self.wait.until(EC.visibility_of_element_located(locator))
+            return element
+        except TimeoutException:
+            counter += 1
+            continue
+    return element
