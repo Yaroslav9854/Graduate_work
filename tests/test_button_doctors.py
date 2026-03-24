@@ -1,3 +1,5 @@
+from pages.page_main import MainPage
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -5,19 +7,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from time import sleep
-from pages.page_main import MainPage
-import allure
 
 @pytest.mark.example_test
-def test_click(driver_init):
+def test_check_test(driver_init):
     page = MainPage(driver_init)
 
     with allure.step("Открываем страницу браузера."):
-        page.open_url()
+        page.open_url("https://alfazdrav.ru/")
 
     with allure.step("Ждем текст заголовка на экране"):
         title_text = page.find_title_text()
         assert title_text
+
+    # with allure.step(""):
 
     # with allure.step("Находим и наводимся на кнопку Врачи"):
     #     search_button = page.find_element(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
