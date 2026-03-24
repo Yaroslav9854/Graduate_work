@@ -1,6 +1,8 @@
 import pytest
 import allure
 from selenium import webdriver
+from selenium.webdriver import chrome
+
 
 @pytest.fixture(scope='function')
 def driver_init():
@@ -9,9 +11,6 @@ def driver_init():
     yield driver_init
     driver_init.quit()
 
-# @pytest.fixture(scope='function')
-# def driver_init():
-#
 # @pytest.fixture(scope="session")
 # def config():
 #     """Конфигурация тестов"""

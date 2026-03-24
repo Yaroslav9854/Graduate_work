@@ -1,8 +1,8 @@
 from pages.page_main import MainPage
 import allure
 import pytest
-from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -19,13 +19,11 @@ def test_check_test(driver_init):
         title_text = page.find_title_text()
         assert title_text
 
-    # with allure.step(""):
+    with allure.step("Находим и наводимся на кнопку Врачи"):
+        page.search_button_doctors(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
+        assert search_button_doctors
 
-    # with allure.step("Находим и наводимся на кнопку Врачи"):
-    #     search_button = page.find_element(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
-    #
-    # with allure.step("Нажимаем кнопку Врачи"):
-    #     click_tabs
+
 
 #     search_button = driver.find_element(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
 #     search_button.click()
