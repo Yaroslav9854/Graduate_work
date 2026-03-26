@@ -1,9 +1,10 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 import allure
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.expected_conditions import title_is
+from selenium.webdriver.support import expected_conditions as EC
 import time
+from time import sleep
+from selenium.common.exceptions import TimeoutException
 
 
 class MainPage(BasePage):
@@ -15,10 +16,13 @@ class MainPage(BasePage):
     SCHEDULE = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[5]/span")
     SERVICES = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[3]/a")
     STOCKS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[7]/a")
+    HELP_DOCTOR = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div/div[5]/div/div[18]/div/div[1]/a[2]")
+    DEPARTMENT = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div[2]/div/div[1]/div/label/span")
 
 
     def __init__(self, driver):
         super().__init__(driver)
+        self.driver = driver
 
     def find_title_text(self):
         return self.wait_element(self.TITLE_TEXT)
@@ -44,6 +48,30 @@ class MainPage(BasePage):
     def select_stocks(self):
         self.click(self.STOCKS)
 
+    def select_help_doctor(self):
+        self.click(self.HELP_DOCTOR)
+
+    def scroll_to_element(self, locator, attempts=5):
+        self.global_timeout = 2
+        element = None
+        counter = 0
+        while counter < attempts:
+            self.driver.execute_script("window.scrollBy(0, 900);")
+            sleep(1)
+            try:
+                element = self.wait.until(EC.visibility_of_element_located(locator))
+                return element
+            except TimeoutException:
+                counter += 1
+                continue
+        return element
+
+    def screenshot(self):
+        self.driver.get_screenshot_as_file("screenshot1.png")
+        self.driver.get_screenshot_as_file("screenshot2.png")
+
+    def select_department(self):
+        self.click(self.DEPARTMENT)
 
     # def check_tabs(self):
     #     tabs = self.wait_elements(self.MAIN.TABS)
@@ -55,28 +83,3 @@ class MainPage(BasePage):
     #         title = self.driver.find_element(By.XPATH, f"/html/body/div[1]/header/div/div[1]/div[2]/div/div/div/div[1]/img[text()='{АЛЬФА ЦЕНТР ЗДОРОВЬЯ}']")
     #         assert text == title.text
     #         time.sleep(3)
-
-    # def open_url(self):
-    #  search_button = find_element(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
-    #  search_button.click()
-    #
-    #
-    # def select_promotions(self):
-    #     self.click(self.PROMOTIONS)
-    #
-    # def select_dodocoins(self):
-    #     self.click(self.DODOCOINS)
-    #
-    # def click_login(self):
-    #     self.click(self.LOGIN_BUTTON)
-    #     time.sleep(3)
-    #
-    # def click_button(self):
-    #     self.click(self.Doctors)
-    #     time.sleep(3)
-    #
-    # def click_tabs(self):
-    #     tabs = self.wait_elements(self.BUTTON.TABS)
-    #     for tab in tabs:
-    #         self.driver.execute_script("", tabs)
-    #         tab.click()

@@ -20,3 +20,4 @@ def test_check_test(driver_init):
         assert title_text
 
     with allure.step("Находим и наводимся на кнопку Контакты"):
+        page.select_contacts()

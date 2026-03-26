@@ -17,6 +17,9 @@ class BasePage:
         element = self.wait.until(EC.visibility_of_element_located(locator))
         return element
 
+    def click(self, locator):
+        return self.wait_element(locator).click()
+
     # def scroll_to_element(self, locator, attempts=5):
     #     self.global_timeout = 2
     #     element = None

@@ -8,6 +8,7 @@ from selenium.webdriver import chrome
 def driver_init():
     with allure.step("Создаем сессию драйвера"):
         driver_init = webdriver.Chrome()
+        driver_init.maximize_window()
     yield driver_init
     driver_init.quit()
 

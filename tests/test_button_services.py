@@ -20,3 +20,13 @@ def test_check_test(driver_init):
         assert title_text
 
     with allure.step("Находим и наводимся на кнопку Услуги"):
+        page.select_services()
+
+    with allure.step("Создаём 1 скриншот в качестве доказательства"):
+        page.screenshot()
+
+    with allure.step("Находим и наводимся на кнопку переключение отделений"):
+        page.select_department()
+
+    with allure.step("Создаём 2 скриншот в качестве доказательства"):
+        page.screenshot()

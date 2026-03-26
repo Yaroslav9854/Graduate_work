@@ -1,3 +1,5 @@
+from selenium.webdriver.support.expected_conditions import element_to_be_selected
+
 from pages.page_main import MainPage
 import allure
 import pytest
@@ -19,26 +21,10 @@ def test_check_test(driver_init):
         title_text = page.find_title_text()
         assert title_text
 
-    with allure.step("Находим и наводимся на кнопку Врачи"):
-        button_doctors = page.select_doctors(DOCTORS)
-        assert button_doctors
+    with allure.step("Находим и нажимаем на кнопку Врачи"):
+        page.select_doctors()
 
-
-
-#     search_button = driver.find_element(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
-#     search_button.click()
-
-# def scroll_to_element(self, locator, attempts=5):
-#     self.global_timeout = 2
-#     element = None
-#     counter = 0
-#     while counter < attempts:
-#         self.driver.execute_script("window.scrollBy(0, 900);")
-#         sleep(1)
-#         try:
-#             element = self.wait.until(EC.visibility_of_element_located(locator))
-#             return element
-#         except TimeoutException:
-#             counter += 1
-#             continue
-#     return element
+    with allure.step("Находим и наводимся на кнопку с нужным врачом"):
+        page.select_help_doctor()
+        scroll_help_doctor = page.scroll_to_element(page.HELP_DOCTOR)
+        assert scroll_help_doctor
