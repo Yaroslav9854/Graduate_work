@@ -20,8 +20,8 @@ def test_check_test(driver_init):
         assert title_text
 
     with allure.step("Находим и наводимся на кнопку Врачи"):
-        page.search_button_doctors(By.XPATH, '/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[2]/a')
-        assert search_button_doctors
+        button_doctors = page.select_doctors(DOCTORS)
+        assert button_doctors
 
 
 

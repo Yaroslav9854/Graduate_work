@@ -9,6 +9,12 @@ import time
 class MainPage(BasePage):
     TITLE_TEXT = (By.XPATH, "/html/body/div[1]/header/div/div[1]/div[2]/div/div/div/div[1]/img")
     DOCTORS = (By.XPATH, "/html/body/div/header/div/div[3]/div/div/div/nav/ul/li[2]/a")
+    CONTACTS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[10]/a")
+    PRICES = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[6]/a")
+    REVIEWS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[9]/a")
+    SCHEDULE = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[5]/span")
+    SERVICES = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[3]/a")
+    STOCKS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[7]/a")
 
 
     def __init__(self, driver):
@@ -19,6 +25,24 @@ class MainPage(BasePage):
 
     def select_doctors(self):
         self.click(self.DOCTORS)
+
+    def select_contacts(self):
+        self.click(self.CONTACTS)
+
+    def select_prices(self):
+        self.click(self.PRICES)
+
+    def select_reviews(self):
+        self.click(self.REVIEWS)
+
+    def select_schedule(self):
+        self.click(self.SCHEDULE)
+
+    def select_services(self):
+        self.click(self.SERVICES)
+
+    def select_stocks(self):
+        self.click(self.STOCKS)
 
 
     # def check_tabs(self):
