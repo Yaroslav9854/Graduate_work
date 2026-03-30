@@ -18,6 +18,12 @@ class MainPage(BasePage):
     STOCKS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[7]/a")
     HELP_DOCTOR = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div/div[5]/div/div[18]/div/div[1]/a[2]")
     DEPARTMENT = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div[2]/div/div[1]/div/label/span")
+    FRUNZENSKAYA = (By.XPATH, "//a[@data-id='38727']")
+    SPORTIVNAYA = (By.XPATH, "//a[@data-id='776317']")
+    SPORTIVNAYA_KIDS = (By.XPATH, "")
+    NOVOSLOBODSKAYA = (By.XPATH, "")
+    NOVOKUZNETSK = (By.XPATH, "")
+    BAUMANSKAYA = (By.XPATH, "")
 
 
     def __init__(self, driver):
@@ -51,6 +57,24 @@ class MainPage(BasePage):
     def select_help_doctor(self):
         self.click(self.HELP_DOCTOR)
 
+    def select_сlinic_frunzenskaya(self):
+        self.click(self.FRUNZENSKAYA)
+
+    def select_clinic_sportivnaya(self):
+        self.click(self.SPORTIVNAYA)
+
+    def select_clinic_sportivnaya_kids(self):
+        self.click(self.SPORTIVNAYA_KIDS)
+
+    def select_clinic_novoslobodskaya(self):
+        self.click(self.NOVOSLOBODSKAYA)
+
+    def select_clinic_novokuznetsk(self):
+        self.click(self.NOVOKUZNETSK)
+
+    def select_clinic_baumanskaya(self):
+        self.click(self.BAUMANSKAYA)
+
     def scroll_to_element(self, locator, attempts=5):
         self.global_timeout = 2
         element = None
@@ -66,9 +90,9 @@ class MainPage(BasePage):
                 continue
         return element
 
-    def screenshot(self):
-        self.driver.get_screenshot_as_file("screenshot1.png")
-        self.driver.get_screenshot_as_file("screenshot2.png")
+    def screenshot(self, name: str = "screenshot.png"):
+        self.driver.get_screenshot_as_file(name)
+        # self.driver.get_screenshot_as_file("screenshot2.png")
 
     def select_department(self):
         self.click(self.DEPARTMENT)

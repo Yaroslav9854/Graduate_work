@@ -21,3 +21,39 @@ def test_check_test(driver_init):
 
     with allure.step("Находим и наводимся на кнопку Контакты"):
         page.select_contacts()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot("screen1.png")
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Фрунзенской"):
+        page.select_сlinic_Frunzenskaya()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot("screen2.png")
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Спортивной"):
+        page.select_clinic_Sportivnaya()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot()
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Детская клиника на Спортивной"):
+        page.select_clinic_sportivnaya_kids()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot()
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Новослободской"):
+        page.select_clinic_novoslobodskaya()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot()
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Новокузнецкой"):
+        page.select_clinic_novokuznetsk()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot()
+
+    with allure.step("Находим и нажимаем на кнопку Клиника на Бауманской"):
+        page.select_clinic_baumanskaya()

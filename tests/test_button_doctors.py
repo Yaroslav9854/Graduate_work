@@ -28,3 +28,6 @@ def test_check_test(driver_init):
         page.select_help_doctor()
         scroll_help_doctor = page.scroll_to_element(page.HELP_DOCTOR)
         assert scroll_help_doctor
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot()
