@@ -20,11 +20,16 @@ class MainPage(BasePage):
     DEPARTMENT = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div[2]/div/div[1]/div/label/span")
     FRUNZENSKAYA = (By.XPATH, "//a[@data-id='38727']")
     SPORTIVNAYA = (By.XPATH, "//a[@data-id='776317']")
-    SPORTIVNAYA_KIDS = (By.XPATH, "")
-    NOVOSLOBODSKAYA = (By.XPATH, "")
-    NOVOKUZNETSK = (By.XPATH, "")
-    BAUMANSKAYA = (By.XPATH, "")
-
+    SPORTIVNAYA_KIDS = (By.XPATH, "//a[@data-id='776323']")
+    NOVOSLOBODSKAYA = (By.XPATH, "//a[@data-id='776330']")
+    NOVOKUZNETSK = (By.XPATH, "//a[@data-id='776332']")
+    BAUMANSKAYA = (By.XPATH, "//a[@data-id='776335']")
+    FIND_CONTACTS = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div[2]/div/h1")
+    FIND_FRUNZENSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
+    FIND_SPORTIVNAYA_KIDS = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
+    FIND_NOVOSLOBODSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
+    FIND_NOVOKUZNETSK = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
+    FIND_BAUMANSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -74,6 +79,27 @@ class MainPage(BasePage):
 
     def select_clinic_baumanskaya(self):
         self.click(self.BAUMANSKAYA)
+
+    def check_element_contacts(self):
+        self.find_element_contacts(self.FIND_CONTACTS)
+
+    def check_element_frunzenskaya(self):
+        self.find_element_frunzenskaya(self.FIND_FRUNZENSKAYA)
+
+    def check_check_sportivnaya(self):
+        self.find_element_sportivnaya(self.FIND_SPORTIVNAYA)
+
+    def check_check_element(self):
+        self.find_element_sportivnaya_kids(self.FIND_SPORTIVNAYA_KIDS)
+
+    def check_check_element(self):
+        self.find_element_novoslobodskaya(self.FIND_NOVOSLOBODSKAYA)
+
+    def check_check_element(self):
+        self.find_element_novokuznetsk(self.FIND_NOVOKUZNETSK)
+
+    def check_check_element(self):
+        self.find_element_baumanskaya(self.FIND_BAUMANSKAYA)
 
     def scroll_to_element(self, locator, attempts=5):
         self.global_timeout = 2
