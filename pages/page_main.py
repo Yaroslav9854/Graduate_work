@@ -30,6 +30,7 @@ class MainPage(BasePage):
     FIND_NOVOSLOBODSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_NOVOKUZNETSK = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_BAUMANSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
+    fond = (By.XPATH, "")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -80,6 +81,23 @@ class MainPage(BasePage):
     def select_clinic_baumanskaya(self):
         self.click(self.BAUMANSKAYA)
 
+    def select_city_selection(self):
+        self.click(self.fond)
+
+    def select_city_perm(self):
+        self.click(self.fond)
+
+    def select_feedback(self):
+        self.click(self.fond)
+
+    def select_address(self):
+        self.click(self.fond)
+
+    def select_record(self):
+        self.click(self.fond)
+
+
+
     def check_element_contacts(self):
         return self.find_element_contacts(self.FIND_CONTACTS)
 
@@ -100,6 +118,18 @@ class MainPage(BasePage):
 
     def check_check_element(self):
         self.find_element_baumanskaya(self.FIND_BAUMANSKAYA)
+
+    def check_element_city(self):
+        self.find_element_city(self.fond)
+
+    def check_element_perm(self):
+        self.find_element_perm(self.fond)
+
+    def check_feedback(self):
+        self.find_element_feedback(self.fond)
+
+    def check_address(self):
+        self.find_element_address(self.fond)
 
     def scroll_to_element(self, locator, attempts=5):
         self.global_timeout = 2

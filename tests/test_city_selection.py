@@ -19,4 +19,11 @@ def test_check_test(driver_init):
         title_text = page.find_title_text()
         assert title_text
 
-    with allure.step("Находим и наводимся на поле расширенного поиска"):
+    with allure.step("Находим и наводимся на кнопку с выбором города"):
+        page.select_city_selection()
+
+    with allure.step("В открывшимся списке выбрать город Пермь"):
+        page.select_city_perm()
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot("screen_contacts_3.png")
