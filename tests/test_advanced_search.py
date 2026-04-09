@@ -18,3 +18,9 @@ def test_check_test(driver_init):
     with allure.step("Ждем текст заголовка на экране"):
         title_text = page.find_title_text()
         assert title_text
+
+    with allure.step("Находим и наводимся на кнопку Контакты"):
+        page.select_contacts()
+
+    with allure.step("Проверяем что смогли перейти на страницу"):
+        page.check_element_contacts()

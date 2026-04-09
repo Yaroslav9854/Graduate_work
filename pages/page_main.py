@@ -81,7 +81,7 @@ class MainPage(BasePage):
         self.click(self.BAUMANSKAYA)
 
     def check_element_contacts(self):
-        self.find_element_contacts(self.FIND_CONTACTS)
+        return self.find_element_contacts(self.FIND_CONTACTS)
 
     def check_element_frunzenskaya(self):
         self.find_element_frunzenskaya(self.FIND_FRUNZENSKAYA)
