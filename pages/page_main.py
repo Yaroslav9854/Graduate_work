@@ -24,7 +24,7 @@ class MainPage(BasePage):
     NOVOSLOBODSKAYA = (By.XPATH, "//a[@data-id='776330']")
     NOVOKUZNETSK = (By.XPATH, "//a[@data-id='776332']")
     BAUMANSKAYA = (By.XPATH, "//a[@data-id='776335']")
-    FIND_CONTACTS = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div[2]/div/h1")
+    FIND_CONTACTS = (By.XPATH, "//a[b-contacts-page__title='Клиники «Альфа-Центр Здоровья» в Москве'")
     FIND_FRUNZENSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_SPORTIVNAYA_KIDS = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_NOVOSLOBODSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
@@ -99,7 +99,7 @@ class MainPage(BasePage):
 
 
     def check_element_contacts(self):
-        return self.find_element_contacts(self.FIND_CONTACTS)
+        self.find_element_contacts(self.FIND_CONTACTS)
 
     def check_element_frunzenskaya(self):
         self.find_element_frunzenskaya(self.FIND_FRUNZENSKAYA)
