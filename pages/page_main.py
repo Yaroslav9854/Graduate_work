@@ -96,8 +96,6 @@ class MainPage(BasePage):
     def select_record(self):
         self.click(self.fond)
 
-
-
     def check_element_contacts(self):
         self.find_element_contacts(self.FIND_CONTACTS)
 
@@ -145,6 +143,9 @@ class MainPage(BasePage):
                 counter += 1
                 continue
         return element
+
+    def implicitly_wait(self):
+        self.global_timeout = 10
 
     def screenshot(self, name: str = "screenshot.png"):
         self.driver.get_screenshot_as_file(name)

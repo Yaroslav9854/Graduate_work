@@ -22,6 +22,9 @@ def test_check_test(driver_init):
     with allure.step("Находим и наводимся на кнопку Контакты"):
         page.select_contacts()
 
+    with allure.step("Ожидание загрузки страницы"):
+        page.implicitly_wait()
+
     with allure.step("Проверяем что смогли перейти на страницу"):
         page.check_element_contacts()
 
