@@ -37,8 +37,6 @@ def test_check_test(driver_init):
     # with allure.step("Проверяем что смогли перейти на страницу"):
     #     page.check_element_frunzenskaya()
     #
-    # with allure.step("Создаём скриншот в качестве доказательства"):
-    #     page.screenshot("screen_contacts_2.png")
 
     with allure.step("Находим и нажимаем на кнопку Клиника на Спортивной"):
         page.check_clinic_sportivnaya()
@@ -46,17 +44,11 @@ def test_check_test(driver_init):
     with allure.step("Проверяем что смогли перейти на страницу"):
         page.check_element_sportivnaya()
 
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_3.png")
-
     with allure.step("Находим и нажимаем на кнопку Клиника на Детская клиника на Спортивной"):
         page.select_clinic_sportivnaya_kids()
 
     with allure.step("Проверяем что смогли перейти на страницу"):
         page.check_element_sportivnaya_kids()
-
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_4.png")
 
     with allure.step("Находим и нажимаем на кнопку Клиника на Новослободской"):
         page.select_clinic_novoslobodskaya()
@@ -64,17 +56,11 @@ def test_check_test(driver_init):
     with allure.step("Проверяем что смогли перейти на страницу"):
         page.check_element_novoslobodskaya()
 
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_5.png")
-
     with allure.step("Находим и нажимаем на кнопку Клиника на Новокузнецкой"):
         page.select_clinic_novokuznetsk()
 
     with allure.step("Проверяем что смогли перейти на страницу"):
         page.check_element_novokuznetsk()
-
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_6.png")
 
     with allure.step("Находим и нажимаем на кнопку Клиника на Бауманской"):
         page.select_clinic_baumanskaya()
@@ -83,4 +69,4 @@ def test_check_test(driver_init):
         page.check_element_baumanskaya()
 
     with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_7.png")
+        page.screenshot("screen_contacts_1.png")
