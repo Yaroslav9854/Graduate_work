@@ -16,7 +16,7 @@ class MainPage(BasePage):
     SCHEDULE = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[5]/span")
     SERVICES = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[3]/a")
     STOCKS = (By.XPATH, "/html/body/div[1]/header/div/div[3]/div/div/div/nav/ul/li[7]/a")
-    HELP_DOCTOR = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div/div[5]/div/div[18]/div/div[1]/a[2]")
+    HELP_DOCTOR = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/div/div[5]/div/div[18]/div/div[1]/a[2]")
     DEPARTMENT = (By.XPATH, "/html/body/div[1]/main/div[2]/div/div/div/div[2]/div/div[1]/div/label/span")
     FRUNZENSKAYA = (By.XPATH, "//a[@data-id='38727']")
     SPORTIVNAYA = (By.XPATH, "//a[@data-id='776317']")
@@ -97,7 +97,7 @@ class MainPage(BasePage):
         self.click(self.fond)
 
     def check_element_contacts(self):
-        self.find_element_contacts(self.FIND_CONTACTS)
+        self.find_element(self.FIND_CONTACTS)
 
     def check_element_frunzenskaya(self):
         self.find_element_frunzenskaya(self.FIND_FRUNZENSKAYA)

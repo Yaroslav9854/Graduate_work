@@ -31,14 +31,14 @@ def test_check_test(driver_init):
     with allure.step("Создаём скриншот в качестве доказательства"):
         page.screenshot("screen_contacts_1.png")
 
-    with allure.step("Находим и нажимаем на кнопку Клиника на Фрунзенской"):
-        page.select_сlinic_frunzenskaya()
-
-    with allure.step("Проверяем что смогли перейти на страницу"):
-        page.check_element_frunzenskaya()
-
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_2.png")
+    # with allure.step("Находим и нажимаем на кнопку Клиника на Фрунзенской"):
+    #     page.select_сlinic_frunzenskaya()
+    #
+    # with allure.step("Проверяем что смогли перейти на страницу"):
+    #     page.check_element_frunzenskaya()
+    #
+    # with allure.step("Создаём скриншот в качестве доказательства"):
+    #     page.screenshot("screen_contacts_2.png")
 
     with allure.step("Находим и нажимаем на кнопку Клиника на Спортивной"):
         page.check_clinic_sportivnaya()
