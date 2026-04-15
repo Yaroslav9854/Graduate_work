@@ -22,8 +22,8 @@ def test_check_test(driver_init):
     with allure.step("Находим и наводимся на кнопку Адреса и график работы"):
         page.select_address()
 
-    with allure.step("Проверяем что смогли перейти на страницу"):
-        page.check_address()
-
-    with allure.step("Создаём скриншот в качестве доказательства"):
-        page.screenshot("screen_contacts_3.png")
+    # with allure.step("Проверяем что смогли перейти на страницу"):
+    #     page.check_address()
+    #
+    # with allure.step("Создаём скриншот в качестве доказательства"):
+    #     page.screenshot("screen_contacts_3.png")

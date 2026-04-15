@@ -22,8 +22,6 @@ class MainPage(BasePage):
     SPORTIVNAYA = (By.XPATH, "//a[@data-id='776317']")
     SPORTIVNAYA_KIDS = (By.XPATH, "//a[@data-id='776323']")
     NOVOSLOBODSKAYA = (By.XPATH, "//a[@data-id='776330']")
-    NOVOKUZNETSK = (By.XPATH, "//a[@data-id='776332']")
-    BAUMANSKAYA = (By.XPATH, "//a[@data-id='776335']")
     FIND_CONTACTS = (By.XPATH, "//a[b-contacts-page__title='Клиники «Альфа-Центр Здоровья» в Москве'")
     FIND_FRUNZENSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_SPORTIVNAYA_KIDS = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
@@ -31,6 +29,7 @@ class MainPage(BasePage):
     FIND_NOVOKUZNETSK = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_BAUMANSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     fond = (By.XPATH, "")
+    ADDRESS_GRAPHIC = (By.XPATH, "//a[text()='Адреса и график работы']")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -91,7 +90,7 @@ class MainPage(BasePage):
         self.click(self.fond)
 
     def select_address(self):
-        self.click(self.fond)
+        self.click(self.ADDRESS_GRAPHIC)
 
     def select_record(self):
         self.click(self.fond)
