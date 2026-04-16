@@ -29,7 +29,10 @@ class MainPage(BasePage):
     FIND_NOVOKUZNETSK = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     FIND_BAUMANSKAYA = (By.XPATH, "/html/body/div/main/div[2]/div/div/div/h1")
     fond = (By.XPATH, "")
-    ADDRESS_GRAPHIC = (By.XPATH, "//a[text()='Адреса и график работы']")
+    ADDRESS_GRAPHIC = (By.XPATH, "/html/body/div[1]/header/div/div[1]/div[1]/div/div/div/div[4]/div[2]/div[1]")
+    RIGHT = (By.XPATH, "/html/body/div[1]/main/div[1]/div/div[2]/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[3]")
+    LEFT = (By.XPATH, "/html/body/div[1]/main/div[1]/div/div[2]/div[2]/div/div/div/div/div[2]/div[2]/div/div/div[1]/img")
+    TECHNIQUES = "//*[@id='price-page']/div/div[3]/div/div[2]/div[1]/div"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -74,12 +77,6 @@ class MainPage(BasePage):
     def select_clinic_novoslobodskaya(self):
         self.click(self.NOVOSLOBODSKAYA)
 
-    def select_clinic_novokuznetsk(self):
-        self.click(self.NOVOKUZNETSK)
-
-    def select_clinic_baumanskaya(self):
-        self.click(self.BAUMANSKAYA)
-
     def select_city_selection(self):
         self.click(self.fond)
 
@@ -95,38 +92,14 @@ class MainPage(BasePage):
     def select_record(self):
         self.click(self.fond)
 
-    def check_element_contacts(self):
-        self.find_element(self.FIND_CONTACTS)
+    def select_right(self):
+        self.click(self.RIGHT)
 
-    def check_element_frunzenskaya(self):
-        self.find_element_frunzenskaya(self.FIND_FRUNZENSKAYA)
+    def select_left(self):
+        self.click(self.LEFT)
 
-    def check_check_sportivnaya(self):
-        self.find_element_sportivnaya(self.FIND_SPORTIVNAYA)
-
-    def check_check_element(self):
-        self.find_element_sportivnaya_kids(self.FIND_SPORTIVNAYA_KIDS)
-
-    def check_check_element(self):
-        self.find_element_novoslobodskaya(self.FIND_NOVOSLOBODSKAYA)
-
-    def check_check_element(self):
-        self.find_element_novokuznetsk(self.FIND_NOVOKUZNETSK)
-
-    def check_check_element(self):
-        self.find_element_baumanskaya(self.FIND_BAUMANSKAYA)
-
-    def check_element_city(self):
-        self.find_element_city(self.fond)
-
-    def check_element_perm(self):
-        self.find_element_perm(self.fond)
-
-    def check_feedback(self):
-        self.find_element_feedback(self.fond)
-
-    def check_address(self):
-        self.find_element_address(self.fond)
+    def select_techniques(self):
+        self.click(self.TECHNIQUES)
 
     def scroll_to_element(self, locator, attempts=5):
         self.global_timeout = 2
@@ -142,9 +115,6 @@ class MainPage(BasePage):
                 counter += 1
                 continue
         return element
-
-    def implicitly_wait(self):
-        self.global_timeout = 10
 
     def screenshot(self, name: str = "screenshot.png"):
         self.driver.get_screenshot_as_file(name)

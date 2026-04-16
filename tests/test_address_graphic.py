@@ -1,12 +1,12 @@
 from pages.page_main import MainPage
 import allure
 import pytest
+import time
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from time import sleep
 
 @pytest.mark.example_test
 def test_check_test(driver_init):
@@ -22,8 +22,8 @@ def test_check_test(driver_init):
     with allure.step("Находим и наводимся на кнопку Адреса и график работы"):
         page.select_address()
 
-    # with allure.step("Проверяем что смогли перейти на страницу"):
-    #     page.check_address()
-    #
-    # with allure.step("Создаём скриншот в качестве доказательства"):
-    #     page.screenshot("screen_contacts_3.png")
+    with allure.step("Ожидание: даем пользователю посмотреть на результат"):
+        time.sleep(5)
+
+    with allure.step("Создаём скриншот в качестве доказательства"):
+        page.screenshot("screen_contacts.png")

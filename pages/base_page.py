@@ -20,7 +20,5 @@ class BasePage:
     def click(self, locator):
         return self.wait_element(locator).click()
 
-    def find_element(self, locator, time=10):
-        element = self.find_element(locator, time).until(EC.presence_of_element_located)
-        return element
-
+    def implicitly_wait(self):
+        self.global_timeout = 10

@@ -1,6 +1,7 @@
 from pages.page_main import MainPage
 import allure
 import pytest
+import time
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -19,4 +20,26 @@ def test_check_test(driver_init):
         title_text = page.find_title_text()
         assert title_text
 
-    with allure.step("Находим и наводимся на поле расширенного поиска"):
+    with allure.step("Находим и наводимся на стрелку вправо"):
+        page.select_right()
+
+    with allure.step("Ожидание: даем пользователю посмотреть на результат"):
+        time.sleep(5)
+
+    with allure.step("Находим и наводимся на стрелку вправо"):
+        page.select_right()
+
+    with allure.step("Ожидание: даем пользователю посмотреть на результат"):
+        time.sleep(5)
+
+    with allure.step("Находим и наводимся на стрелку влево"):
+        page.select_left()
+
+    with allure.step("Ожидание: даем пользователю посмотреть на результат"):
+        time.sleep(5)
+
+    with allure.step("Находим и наводимся на стрелку влево"):
+        page.select_left()
+
+    with allure.step("Ожидание: даем пользователю посмотреть на результат"):
+        time.sleep(5)
